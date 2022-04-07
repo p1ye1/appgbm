@@ -99,8 +99,8 @@
           <!-- ################################################################################################ -->
           {% for plan in principal %}
           <div class="group btmspace-50 demo">
-            <div class="one_quarter first"><b><i></i>{{plan.titulo}}</b></div>
-            <div class="three_quarter">{{plan.descripcion}}<b><img src="{{ plan.icono.url }}"></b></div>
+            <div class="one_quarter first"><b><img src="{{ plan.icono.url }}">{{plan.titulo}}</b></div>
+            <div class="three_quarter">{{plan.descripcion}}</div>
           </div>
           {% endfor %}
            <!-- ################################################################################################ -->
