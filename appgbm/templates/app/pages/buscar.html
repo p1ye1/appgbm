@@ -1,6 +1,39 @@
-{% extends "app/base.html" %}{% load static %}{% block contenido %}
+{% extends "app/base.html" %}
+{% load static %}
+{% block contenido %}
+{% load crispy_forms_tags %}
 
 
+{% block estilos %}
+{% endblock %}
+
+
+
+<center>
+<div id="main"> 
+    <div class="container">
+        <div class="row events-list">
+            <h2>Los resultados de busqueda {{ query }}</h2>
+            {% for plan in planes %}
+
+            <div class="col-12 col-lg-6 single-event">
+                <header class="entry-header flex justify-content-between">
+                    <div>
+                        <h1 style="color: rgb(255, 217, 0); ">{{ plan.titulo }}</h1>
+                        <a><img src="{{ plan.icono.url }}" alt="" class="left" /></a>
+                        <section>
+                            <pre
+                                style="color: rgb(255, 255, 255); height: 300px; overflow-y: auto;">{{ plan.descripcion }}</pre>
+                            <br>
+                        </section>
+                    </div>
+                </header>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</center>
 
 
 

@@ -42,32 +42,6 @@ class Planes(models.Model):
     def __str__(self):
         return self.titulo
 
-
-class Smart_cash(models.Model):
-    logo = models.ImageField(null=True, upload_to='')
-    encabezado = models.CharField(max_length=100, blank=False, null=False)
-    informacion = models.CharField(max_length=100, blank=False, null=False)
-    hipervinculo = models.URLField(blank=False, null=False)
-    imagen = models.ImageField(null=True, upload_to='img_smart_cash')
-    def __str__(self):
-        return self.encabezado
-    class Meta:
-        verbose_name = ("Tipo de Plan")
-        verbose_name_plural = ("Smart Cash")
-
-class Wealth_management(models.Model):
-    logo = models.ImageField(null=True, upload_to='')
-    encabezado = models.TextField(max_length=100, blank=False, null=False)
-    informacion = models.TextField(max_length=100, blank=False, null=False)
-    hipervinculo = models.URLField(blank=False, null=False)
-    javascripts = models.TextField(blank=False, null=False)
-    listadesplegable = models.TextField(blank=False, null=False)
-    def __str__(self):
-        return self.encabezado
-    class Meta:
-        verbose_name = ("Tipo de Plan")
-        verbose_name_plural = ("Wealth Management")
-
 class Contacto_footer(models.Model):
     cuenta = models.TextField(max_length=80, blank=False, null=False)
     correo_e = models.EmailField(max_length=80, blank=False, null=False)
@@ -76,3 +50,24 @@ class Contacto_footer(models.Model):
         verbose_name_plural = ("Cuentas")
     def __str__(self):
         return self.cuenta
+
+class Comentarios_inicio(models.Model):
+    persona = models.CharField(max_length=80, blank=False, null=False)
+    comentario = models.TextField(max_length=280, blank=False, null=False)
+    class Meta:
+        verbose_name = ("Comentario")
+        verbose_name_plural = ("Comentarios")
+    def __str__(self):
+        return self.persona
+
+class Usuarios_register(models.Model):
+    nombre = models.CharField(max_length=80, blank=False, null=False)
+    apellido = models.CharField(max_length=80, blank=False, null=False)
+    usuario = models.CharField(max_length=80, blank=False, null=False)
+    correo_e = models.EmailField(max_length=100, blank=False, null=False)
+    contraseña = models.CharField(max_length=80, blank=False, null=False)
+    class Meta:
+        verbose_name = ("Usuario")
+        verbose_name_plural = ("Usuarios")
+    def __str__(self):
+        return self.usuario

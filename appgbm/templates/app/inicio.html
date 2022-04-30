@@ -4,12 +4,66 @@
 
 {% block contenido %}
 
+{% block btnstyle %}
+<style>
+  .botones {
+  width: 100%;
+  text-align: center;
+}
+
+#separar{
+  padding: 3%;
+  display: inline-block;
+}
+.pkmn {
+  padding: 16px 32px;
+  border-radius: 6px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.planta {
+  margin-top: 32px;
+  background: #1abc9c;
+  border: 2px solid #1abc9c;
+  color: #ffffff;
+}
+
+.agua {
+  margin-bottom: 32px;
+  background: #0099CC;
+  border: 2px solid #0099CC;
+  color: #ffffff;
+}
+
+.boton3:hover {
+  background: transparent;
+  color: #0099CC !important;
+}
+
+.boton4:hover {
+  background: transparent;
+  color: #1abc9c !important;
+}
+</style>
+{% endblock %}
+
+{% block estilos %}
+    <style type="text/css">
+    /* DEMO ONLY */
+      .container .demo{text-align:left;}
+      .container .demo div{padding: 10px 18px; border-radius: 6px;}
+      .container .demo div:nth-child(odd){color:#FFFFFF; background:#b1b0b0;}
+      .container .demo div:nth-child(even){color:#FFFFFF; background:#7a7a7a;}
+      @media screen and (max-width:900px){.container .demo div{margin-bottom:0;}}
+     /* DEMO ONLY */
+    </style>
+{% endblock %}
 
 <body id="top">
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
   <!-- ################################################################################################ -->
-  <div id="top" class="hoc clear"> 
+  <div id="top" class="hoc clear">
     <div class="wrapper row bgded">
       <a class="btmspace-30">
         <img src="{% static 'images/imagenes/grupomexicanobursatil.jpg' %}" alt="GBM">
@@ -76,18 +130,6 @@
     <!-- ################################################################################################ -->
     <!-- ################################################################################################ -->
 
-      {% block stilos %}
-      <style type="text/css">
-      /* DEMO ONLY */
-        .container .demo{text-align:center;}
-        .container .demo div{padding:8px 0;}
-        .container .demo div:nth-child(odd){color:#FFFFFF; background:#CCCCCC;}
-        .container .demo div:nth-child(even){color:#FFFFFF; background:#979797;}
-        @media screen and (max-width:900px){.container .demo div{margin-bottom:0;}}
-       /* DEMO ONLY */
-      </style>
-      {% endblock %}
-
       <div class="wrapper row3">
         <section id="services">
           <div class="sectiontitle">
@@ -99,8 +141,8 @@
           <!-- ################################################################################################ -->
           {% for plan in principal %}
           <div class="group btmspace-50 demo">
-            <div class="one_quarter first"><b><img src="{{ plan.icono.url }}">{{ plan.titulo }}</b></div>
-            <div class="three_quarter">{{ plan.descripcion }}</div>
+            <div class="one_quarter first"><img style="padding-right: 10px;" src="{{ plan.icono.url }}"><b>{{ plan.titulo }}</b></div>
+            <div class="three_quarter" style="text-align: center; font-family: 'Segoe UI'"><p>{{ plan.descripcion }}</p></div>
           </div>
           {% endfor %}
            <!-- ################################################################################################ -->
@@ -126,97 +168,42 @@
 
 
 
-<div id="breadcrumb" class="hoc clear"> 
-  <!-- ################################################################################################ -->
-  <h6 class="heading">Gallery</h6>
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Lorem</a></li>
-    <li><a href="#">Ipsum</a></li>
-    <li><a href="#">Dolor</a></li>
-  </ul>
-  <!-- ################################################################################################ -->
-</div>
-<!-- ################################################################################################ -->
-</div>
-<div class="wrapper row3">
-  <main class="hoc container clear"> 
-    <!-- main body -->
-    <!-- ################################################################################################ -->
-    <div class="content"> 
-      <!-- ################################################################################################ -->
-      <div id="gallery">
-        <figure>
-          <header class="heading">Gallery Title Goes Here</header>
-          <ul class="nospace clear">
-            <li class="one_quarter first"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter first"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter first"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-            <li class="one_quarter"><a href="#"><img src="../images/demo/gallery/01.png" alt=""></a></li>
-          </ul>
-          <figcaption>Gallery Description Goes Here</figcaption>
-        </figure>
-      </div>
-      <!-- ################################################################################################ -->
-      <!-- ################################################################################################ -->
-      <nav class="pagination">
-        <ul>
-          <li><a href="#">&laquo; Previous</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><strong>&hellip;</strong></li>
-          <li><a href="#">6</a></li>
-          <li class="current"><strong>7</strong></li>
-          <li><a href="#">8</a></li>
-          <li><a href="#">9</a></li>
-          <li><strong>&hellip;</strong></li>
-          <li><a href="#">14</a></li>
-          <li><a href="#">15</a></li>
-          <li><a href="#">Next &raquo;</a></li>
-        </ul>
-      </nav>
-      <!-- ################################################################################################ -->
-    </div>
-    <!-- ################################################################################################ -->
-    <!-- / main body -->
-    <div class="clear"></div>
-  </main>
-</div>
 
-
-<h2>Write A Comment</h2>
+<center>
+<h2 class="nospace btmspace-15" style="margin-top: 32px;"><strong>Comentarios</strong></h2>
       <form action="" method="post">
           {% csrf_token %}
         <fieldset>
           <div>
-            <input class="btmspace-15" type="text" value="" placeholder="Nombre Cuenta" name="{{ form.cuenta.name }}">
-            <input class="btmspace-15" type="text" value="" placeholder="Correo Electrónico" name="{{ form.correo_e.name }}">
-            <input type="submit" name="submit" value="Submit Form">
-            &nbsp;
-            <input type="reset" name="reset" value="Reset Form">
+            <input class="btmspace-15" type="text" value="" placeholder="Nombre" name="{{ formComenta.persona.name }}" style="color: #ffffff; background: transparent; border: 2px solid #0099CC; border-radius: 6px; padding: 16px 32px; text-align: center; text-transform: uppercase; margin-bottom: 32px;">
+            <input class="btmspace-15" type="text" value="" placeholder="Comentanos" name="{{ formComenta.comentario.name }}" style="color: #ffffff; background: transparent; border: 2px solid #0099CC; border-radius: 6px; padding: 80px 100px; text-align: center; text-transform: uppercase; margin-bottom: 32px;">
+            <section class="botones">
+              <div id="separar">
+                <input class="pkmn planta boton4" type="submit" name="submit" value="Enviar Respuesta">
+              </div>
+              &nbsp;
+              <div id="separar">
+                <input class="pkmn agua boton3" type="reset" name="reset" value="Limpiar Formulario">
+              </div>
+            </section>
           </div>
         </fieldset>
       </form>
+</center>
 
-
-
-
-
-
-
-
-
-
-
-
+{% for comment in comentario %}
+<div class="wrapper row3">
+  <main class="hoc container clear">
+    <fieldset>
+      <div>
+        <center>
+          <input class="btmspace-15" type="text" value="" placeholder="{{ comment.comentario }}" name="" style="color: #ffffff; background: transparent; border: 2px solid #0099CC; border-radius: 6px; padding: 150px 300px; text-align: center; text-transform: uppercase; margin-bottom: 32px;">
+        </center>
+      </div>
+    </fieldset>
+  </main>
+</div>
+{% endfor %}
 
 
 

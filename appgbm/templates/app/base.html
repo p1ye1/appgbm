@@ -9,17 +9,26 @@ Copyright: OS-Templates.com
 Licence: Free to use under our free template licence terms
 Licence URI: https://www.os-templates.com/template-terms
 -->
-<html lang="">
+<html lang="es">
 <!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
 <head>
 <title>GBM{% block titulo %}{% endblock %}</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
-{% block stilos %}
+{% block estilos %}
 
 
 {% endblock %}
+
+
+
+
+{% block btnstyle %}
+
+
+{% endblock %}
+
 </head>
 <body>
    <!--################### Inicia el Header #####################-->
@@ -39,22 +48,12 @@ Licence URI: https://www.os-templates.com/template-terms
       <div class="fl_right"> 
         <!-- ################################################################################################ -->
         <ul class="nospace">
-          <li>
-            <div class="col-md-12 search">
-              <form method="get">
-                <div id="custom-search-input">
-                  <div>
-                    <input type="text"  class="form-control" placeholder="Buscar..." id="name" name="buscar" value="{{ request.GET.buscar }}">
-                    <button type="submit" class="button btn-success">Buscar <i class="fas fa-search"></i></button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </li>
-          <li><a href="{% url 'inicio' %}"><i class="fas fa-home"></i></a></li>
-          <li><a href="#" title="Help Centre"><i class="far fa-life-ring"></i></a></li>
-          <li><a href="#" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
-          <li><a href="#" title="Sign Up"><i class="fas fa-edit"></i></a></li>
+          <li><a href="{% url 'inicio' %}" title="Home"><i class="fas fa-home"></i></a></li>
+          <!--<li><a href="{% url 'icons' %}" title="Help Centre"><i class="far fa-life-ring"></i></a></li>-->
+          <li><a href="{% url 'login' %}" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+          <li><a href="{% url 'logout' %}" title="Logout"><i class="fas fa-sign-out-alt"></i></a></li>
+          <li><a href="{% url 'register' %}" title="Sign Up"><i class="fas fa-edit"></i></a></li>
+          <li><a href="/digits" title="Digits"><i class="fas fa-calculator"></i></a></li>
         </ul>
         <!-- ################################################################################################ -->
       </div>
@@ -72,14 +71,30 @@ Licence URI: https://www.os-templates.com/template-terms
           <h1 class="logoname"><a href="{% url 'inicio' %}"><img src="{% static 'images/imagenes/gbm.png' %}"></a></h1>
           <!-- ################################################################################################ -->
         </div>
+        <div class="fl_left">
+          <ul class="nospace">
+            <li>
+              <form action="/buscar/" method="get">
+                <section class="botones">
+                  <div id="separar">
+                    <input style="color: #ffffff; background: transparent; border: 2px solid #0099CC; border-radius: 6px; padding: 4px 8px; text-align: center;" type="search" id="busqueda" name="busqueda" placeholder="Busqueda"
+                    required="required">
+                  </div>
+                  <div id="separar">
+                    <button style="color: #ffffff; background: #0099CC; border: 2px solid #0099CC; border-radius: 6px; text-align: center;" type="submit" value="Submit Form">Buscar</button>
+                  </div>
+                </section>
+              </form>
+            </li>
+          </ul>
+        </div>
         <nav id="mainav" class="fl_right">
           <!-- ################################################################################################ -->
           <ul class="clear">
             <li class="active"><a href="{% url 'inicio' %}">Página de Inicio</a></li>
             <li><a class="drop" href="#">Páginas</a>
               <ul>
-                <li><a href="{% url 'galeria' %}">Productos</a></li>
-                <li><a href="{% url 'basic' %}">Aprender</a></li>
+                <li><a href="/digits">Digits</a></li>
                 <li><a href="https://gbm.com/quienes-somos/">Conócenos</a></li>
                 <li><a href="https://comunidad.gbm.com/s/?_ga=2.166351866.573925495.1644613015-17195480.1644613015&_gac=1.209462822.1644613355.EAIaIQobChMIqNj3ksb49QIVfwytBh27kw9vEAAYASAAEgJM6fD_BwE">FAQs</a></li>
                 <li><a href="https://pt.gbm.com.mx/vpn/index.html?_ga=2.166351866.573925495.1644613015-17195480.1644613015&_gac=1.209462822.1644613355.EAIaIQobChMIqNj3ksb49QIVfwytBh27kw9vEAAYASAAEgJM6fD_BwE">Otros Accesos</a></li>

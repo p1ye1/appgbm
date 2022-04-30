@@ -1,0 +1,66 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block titulo %}
+Login Users
+{% endblock %}
+
+{% block contenido %}
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <hr style="border: grey 16px; ">
+  <section id="info" class="clear"> 
+  <main class="content two_quarter">
+    <div id="comments">
+      <h2 class="heading uppercase btmspace-30 center">Inicio de Sesión</h2>
+        <form action="" method="post">
+          {% csrf_token %}
+          {% if form.errors %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+              <div id="form_errors">
+                {% for key, value in form.errors.items %}
+                  <strong>{{ value }}</strong>
+                {% endfor %}
+              </div>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close" >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          {% endif %}
+          <div class="block">
+            <label for="username">Username</label>
+            <center>
+              <input class="btmspace-15" type="text" value="" placeholder="Nombre de Usuario" name="{{ formRegis.usuario.name }}" style="color: #2b2b2b; 
+              background: transparent; border: 2px solid #0099CC; border-radius: 6px; padding: 16px 32px; text-align: left; text-transform: uppercase; margin-bottom: 32px;">
+            </center>
+          </div>
+          <div class="block">
+            <label for="password">Password</label>
+            <center>
+              <input class="btmspace-15" type="password" value="" placeholder="Tu Contraseña" name="{{ formRegis.contraseña.name }}" style="color: #2b2b2b; 
+              background: transparent; border: 2px solid #0099CC; border-radius: 6px; padding: 16px 32px; text-align: left; text-transform: uppercase; margin-bottom: 32px;">
+            </center>
+          </div>
+          <div class="block center">
+            <label for="remember_me">Remember me</label>
+          </div>
+          
+          <div class="block center">
+            <p><input name="submit" type="submit" value="Log In"></p>
+            <p><input name="reset" type="reset" value="Reset Form"></p>
+          </div>
+          <div class="block center">
+            <p>¿No tienes una cuenta? Registrate <a href="{% url 'register' %}"> Aquí </a></p>
+          </div>
+        </form>
+      <div class="clear"></div>
+      </div>
+  </main>
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+{% endblock %}
